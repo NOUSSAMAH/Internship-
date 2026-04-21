@@ -178,7 +178,7 @@ def explain_zero_client_model() -> str:
 # -----------------------------
 class LoginSystem:
     def __init__(self, users: Optional[Dict[str, str]] = None, max_attempts: int = 3) -> None:
-        self.users = users or {"admin": "Admin@123", "student": "study123"}
+        self.users = users if users is not None else {"admin": "Admin@123", "student": "study123"}
         self.max_attempts = max_attempts
 
     def authenticate(self, username: str, password: str) -> bool:
